@@ -1,0 +1,8 @@
+#!/bin/sh -e
+
+export GOPATH=$(pwd)/go
+export GO111MODULE=on
+
+go build -v
+
+install -Dm 755 melonbar "$1/usr/bin/melonbar"
