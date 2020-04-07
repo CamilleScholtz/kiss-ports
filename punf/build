@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-export GOPATH=$(pwd)/go
+export GOPATH="$PWD/go"
 export GO111MODULE=on
 
 go build -v
@@ -8,6 +8,6 @@ go build -v
 install -Dm 755 punf "$1/usr/bin/punf"
 
 # Install shell files
-if [[ -e '/usr/bin/fish' ]]; then
-	install -Dm644 runtime/fish/completions/punf.fish "$1/usr/share/fish/completions/punf.fish"
+if [ -e '/usr/bin/fish' ]; then
+    install -Dm644 runtime/fish/completions/punf.fish "$1/usr/share/fish/completions/punf.fish"
 fi
