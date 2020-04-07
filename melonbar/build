@@ -3,6 +3,6 @@
 export GOPATH="$PWD/go"
 export GO111MODULE=on
 
-go get -v
+go build -v
 
 install -Dm 755 melonbar "$1/usr/bin/melonbar"
