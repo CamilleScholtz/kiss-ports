@@ -1,0 +1,12 @@
+#!/bin/sh -e
+
+export GOPATH="$PWD/go"
+export GO111MODULE=on
+
+go build -v
+
+install -Dm 755 wimpel "$1/usr/bin/wimpel"
+install -Dm 755 runtime/config/config.toml "$1/etc/wimpel/config.toml"
+
+install -Dm 755 wimpel.run "$1/etc/sv/wimpel/run"
+ln -sf /run/runit/supervise.wimpel "$1/etc/sv/wimpel/supervise"
